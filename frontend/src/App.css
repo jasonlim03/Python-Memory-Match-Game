@@ -1,0 +1,430 @@
+* {
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Prevent horizontal scrolling */
+body, html {
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: 'FuturaExtraBold';
+  src: url('/font/Futura-Extra-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family:"Futura";
+  src: url('/font/FuturaNowText.ttf') format('opentype');
+}
+
+.login-container {
+  width: 25%;
+  max-width: 600px; /* Optional: limits the maximum width */
+  margin: auto;     /* Center the container */
+  overflow: hidden;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Hover effect with increased specificity */
+.custom-button:hover {
+  background-color: rgb(7, 8, 77) !important; /* Background color on hover */
+}
+
+.custom-button1:hover {
+  background-color: rgb(20, 189, 52) !important; /* Background color on hover */
+  color: white !important;
+}
+.custom-button2:hover {
+  background-color: rgb(9, 109, 52) !important; /* Background color on hover */
+  color: white !important;
+}
+
+.logoContainer img {
+  animation: rotate 4s linear infinite; /* Adjust the animation duration as needed */
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.popout-container {
+  transition: opacity 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    padding: 1.5rem !important;
+    width: 80%;
+    max-width: 100%; /* Ensures container doesn't exceed viewport width */
+  }
+
+  .circleContainer {
+    /* display: none; */
+    top: 5% !important;;
+    right: 5% !important;;
+    transform: translate(10%, -15%);
+  }
+
+  .arrow-pointer {
+    display: block;
+    position: relative;
+    top: 6vh; /* Push it down below the header */
+  }
+
+  .leftFlag,
+  .middleFlag {
+      display: none; /* Hide left and middle flags on mobile */
+  }
+}
+
+/* Add this to your App.css or a relevant CSS file */
+.logo-blur {
+  filter: blur(5px); /* Adjust the value to increase or decrease the blur */
+  transition: filter 0.5s ease; /* Optional: adds a smooth transition effect */
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columns */
+  grid-template-rows: repeat(2, 1fr);    /* 2 rows */
+  gap: 5vh; /* Space between the cards */
+  height: 60vh;
+  width: 50vh;
+}
+
+.card {
+  background-color: #fff; /* Background color of cards */
+  border: 1px solid #ccc; /* Border for cards */
+  border-radius: 8px; /* Rounded corners */
+  height: 30vh; /* Set height for cards */
+  width: 20vh;
+  display: flex; /* Center content */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  font-size: 2vh; /* Font size for card content */
+  color: #333; /* Text color */
+  cursor: pointer; /* Change cursor on hover */
+  transition: transform 0.2s; /* Animation effect */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+.history-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7); /* Transparent background */
+  z-index: 1000;
+}
+
+.history-modal-content {
+  color: white;
+  background-color: #7843e6;
+  padding: 2vh;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  text-align: center;
+}
+
+.game-history-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.game-history-content li {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.leaderboard-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's above other elements */
+}
+
+.leaderboard-modal-content {
+  color: white;
+  background-color: #7843e6;
+  border-radius: 8px;
+  padding: 20px;
+  width: 90%; /* Adjust width as necessary */
+  max-width: 500px; /* Max width for larger screens */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children horizontally */
+}
+
+.leaderboard-content {
+  margin-top: 15px;
+  width: 100%; /* Ensure content takes full width */
+}
+
+.leaderboard-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd; /* Separator between leaderboard entries */
+}
+
+.leaderboard-item p {
+  margin: 0;
+}
+
+.leaderboard-item strong {
+  font-size: 1.2em; /* Slightly larger font for ranking */
+}
+
+h4 {
+  margin-bottom: 15px;
+  text-align: center; /* Center text */
+}
+
+.leaderboard-icon {
+  cursor: pointer;
+  width: 4vh; /* Set desired width */
+  height: 4vh; /* Set desired height */
+  margin-right: 3vh; /* Optional: Adjust spacing */
+  transition: transform 0.2s ease, filter 0.2s ease; /* Smooth transition for effects */
+}
+
+/* Hover effect */
+.leaderboard-icon:hover {
+  transform: scale(1.1); /* Slightly increase size on hover */
+  filter: brightness(1.1); /* Slightly brighten the image */
+}
+
+/* Click effect */
+.leaderboard-icon:active {
+  transform: scale(0.95); /* Slightly reduce size on click */
+  filter: brightness(0.9); /* Slightly darken the image */
+}
+
+.history-icon {
+  cursor: pointer;
+  width: 4vh; /* Set desired width */
+  height: 4vh; /* Set desired height */
+  margin-right: 3vh; /* Optional: Adjust spacing */
+  transition: transform 0.2s ease, filter 0.2s ease; /* Smooth transition for effects */
+}
+
+/* Hover effect */
+.history-icon:hover {
+  transform: scale(1.1); /* Slightly increase size on hover */
+  filter: brightness(1.1); /* Slightly brighten the image */
+}
+
+/* Click effect */
+.history-icon:active {
+  transform: scale(0.95); /* Slightly reduce size on click */
+  filter: brightness(0.9); /* Slightly darken the image */
+}
+
+.setting-icon {
+  cursor: pointer;
+  width: 4vh; /* Set desired width */
+  height: 4vh; /* Set desired height */
+  margin-right: 3vh; /* Optional: Adjust spacing */
+  transition: transform 0.2s ease, filter 0.2s ease; /* Smooth transition for effects */
+}
+
+/* Hover effect */
+.setting-icon:hover {
+  transform: scale(1.1); /* Slightly increase size on hover */
+  filter: brightness(1.1); /* Slightly brighten the image */
+}
+
+/* Click effect */
+.setting-icon:active {
+  transform: scale(0.95); /* Slightly reduce size on click */
+  filter: brightness(0.9); /* Slightly darken the image */
+}
+
+.logout-icon {
+  cursor: pointer;
+  width: 4vh; /* Set desired width */
+  height: 4vh; /* Set desired height */
+  transition: transform 0.2s ease, filter 0.2s ease; /* Smooth transition for effects */
+}
+
+/* Hover effect */
+.logout-icon:hover {
+  transform: scale(1.1); /* Slightly increase size on hover */
+  filter: brightness(1.1); /* Slightly brighten the image */
+}
+
+/* Click effect */
+.logout-icon:active {
+  transform: scale(0.95); /* Slightly reduce size on click */
+  filter: brightness(0.9); /* Slightly darken the image */
+}
+
+.profile-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.profile-modal-content {
+  color: white;
+  background-color: #7843e6;
+  border-radius: 5px;
+  padding: 20px;
+  width: 50vh; /* Adjust width as necessary */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children horizontally */
+}
+
+.settings-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+.settings-modal-content {
+  color: white;
+  background: #7843e6; /* Modal background color */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Padding inside the modal */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  width: 40vh; /* Set a fixed width */
+  max-width: 90%; /* Responsive max width */
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children horizontally */
+}
+
+.settings-modal-content h4 {
+  margin-bottom: 20px; /* Space below the heading */
+  text-align: center; /* Center align heading */
+  font-size: 1.5rem; /* Adjust font size */
+}
+
+.form-group {
+  margin-bottom: 15px; /* Space between form groups */
+}
+
+label {
+  display: block; /* Display labels as block for better spacing */
+  margin-bottom: 5px; /* Space between label and input */
+  font-weight: bold; /* Bold labels */
+}
+
+input[type="checkbox"] {
+  margin-right: 10px; /* Space between checkbox and label */
+}
+
+input[type="range"] {
+  width: 100%; /* Full width for range input */
+}
+
+.arrow-container {
+  margin-top: -10px; /* Adjust for positioning */
+}
+
+.arrow-pointer {
+  width: 3vh; /* Adjust size */
+  height: 3vh;
+}
+
+/* Hover effect */
+.arrow-pointer:hover {
+  transform: scale(1.1); /* Slightly increase size on hover */
+  filter: brightness(1.1); /* Slightly brighten the image */
+}
+
+/* Click effect */
+.arrow-pointer:active {
+  transform: scale(0.95); /* Slightly reduce size on click */
+  filter: brightness(0.9); /* Slightly darken the image */
+  transform: rotate(180deg); /* Rotate the arrow when the panel is open */
+}
+
+.game-rules-panel {
+  position: absolute;
+  top: 7vh; /* Just below the header */
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 0 20px;
+  color: #ff7023;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out; /* Smooth transition for expanding/collapsing */
+  border-bottom-left-radius: 250px;
+  border-bottom-right-radius: 250px;
+}
+
+.background-blur {
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  transition: background-color 0.3s ease;
+}
+
+.game-rules-panel.expanded {
+  max-height: 93vh; /* Adjust height based on content */
+}
+
+/* Arrow Pointer */
+.arrow-container img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.arrow-container img.up {
+  transform: rotate(180deg);
+}
+
+/* Hover effect */
+.igicon:hover, 
+.fbicon:hover,
+.twittericon:hover {
+  transform: scale(1.1); /* Slightly increase size on hover */
+  filter: brightness(1.1); /* Slightly brighten the image */
+  transition: transform 0.2s, filter 0.2s; /* Add transition for smooth effect */
+}
+
+/* Click effect */
+.igicon:active, 
+.fbicon:active,
+.twittericon:active {
+  transform: scale(0.95); /* Slightly reduce size on click */
+  filter: brightness(0.9); /* Slightly darken the image */
+}
